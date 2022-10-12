@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens</title>
+    <style>
+        header {
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+        }
+
+        div {
+            background-color: rgb(233, 228, 228);
+            width: 100px;
+            margin: 5px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Desafio das Mensagens</h1>
+    </header>
+    <main>
+        <div id="b1">
+            Botão 1
+        </div>
+        <div id="b2">
+            Botão 2
+        </div>
+        <div id="b3">
+            Botão 3
+        </div>
+    </main>
+    <script>
+        var botao1 = document.getElementById('b1')
+        var botao2 = document.getElementById('b2')
+        var botao3 = document.getElementById('b3')
+        botao1.addEventListener("click", clique1)
+        botao2.addEventListener("click", clique2)
+        botao3.addEventListener("click", clique3)
+
+        function clique1 () {
+            alert("Você clicou no 1° botão")
+            botao1.style.backgroundColor = 'red'
+            botao1.style.color = 'white'
+        }
+
+        function clique2() {
+            alert("Você clicou no 2° botão")
+            botao2.style.backgroundColor = 'green'
+            botao2.style.color = 'white'
+        }
+
+        function clique3() {
+            alert("Você clicou no 3° botão")
+            botao3.style.backgroundColor = 'blue'
+            botao3.style.color = 'white'
+        }
+    </script>
+</body>
+</html>
