@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nativo</title>
+</head>
+<body>
+    <p>Digite seu país de nascimento <input type="text" id="txtpais"></p>
+    <input type="button" value="Verificar" onclick="nativo()">
+    <div id="res">
+
+    </div>
+    <script>
+        function nativo() {
+            var res = document.getElementById('res')
+            var pais = document.getElementById('txtpais')
+            var paistxt = String(pais.value)
+            res.innerHTML = 'Você nasceu no(a) ' + paistxt + ' então '
+            if (paistxt == 'Brasil') {
+                res.innerHTML += 'é brasileiro(a).'
+            }else {
+                res.innerHTML += 'não é brasileiro(a).'
+            }
+        }
+    </script>
+</body>
+</html>
