@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Antes e Depois</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        div {
+            background-color: rgb(52, 50, 50);
+            color: white;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Antes e depois</h1>
+    <div id="desafio" onclick="cessor()">
+        Antecessor e Sucessor
+    </div>
+    <script>
+        function cessor() {
+            let desafio = document.getElementById('desafio')
+            let num = (Number(prompt('Digite um número inteiro')))
+            let antes = `Antes de ${num} temos ${num-=1}.`
+            let depois = `Depois de ${num+=1} temos ${num+=1}`
+            alert(`${antes}.\n ${depois}`)
+            desafio.style.backgroundColor = 'white'
+            desafio.style.backgroundColor = 'black'
+        }
+    </script>
 </body>
 </html>

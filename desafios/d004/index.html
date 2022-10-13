@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calcula Troco</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        div {
+            background-color: rgb(52, 50, 50);
+            color: white;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Calculando o Troco</h1>
+    <div id="desafio" onclick="troco()">
+        Comprar produto
+    </div>
+    <script>
+        function troco() {
+            desafio = document.querySelector('div#desafio')
+            nome = String(prompt('Qual produto está comprando?'))
+            preco = Number(prompt('Qual preço do ' + nome + '?'))
+            pago = Number(prompt('Qual valor que você deu para pagar o ' + nome + '?'))
+            alert(`Você comprou ${nome} que custou R$ ${preco}.\n Deu R$ ${pago} em dinheiro e vai receber R$ ${pago - preco} de troco.`)
+        }
+    </script>
 </body>
 </html>
