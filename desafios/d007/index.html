@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Conversor R$ -> US$</title>
+    <style>
+        div p{
+            background-color: rgba(128, 128, 128, 0.089);
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid gray;
+            box-shadow: 1px 1px gray;
+        }
+
+        span {
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Conversor R$ -> US$</h1>
+    <div id="converte" onclick="conversor()">
+        <p>Converter</p>
+    </div>
+    <p id="texto">Clique no botão para iniciar</p>
+    <script>
+        function conversor() {
+            let texto = document.querySelector('p#texto')
+            let converte = document.getElementById('converte')
+            let cotac = Number(prompt('Quanto está a cotação do dólar'))
+            let carteira = Number(prompt('Quantos R$ tem na carteira?'))
+            let dolar = carteira / cotac
+            converte.innerHTML += (`<span>R$ ${carteira} = U$ ${dolar.toFixed([2])} <span> <br>`)
+            texto.innerHTML = ''
+        }
+    </script>
 </body>
 </html>

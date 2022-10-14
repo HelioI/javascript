@@ -4,9 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversor</title>
+    <title>Conversor de medidas</title>
+    <style>
+        div p{
+            background-color: rgba(128, 128, 128, 0.089);
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid gray;
+            box-shadow: 1px 1px gray;
+        }
+
+        span {
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Conversor de Medidas</h1>
+    <div id="converte" onclick="conversor()">
+        <p>Converter</p>
+    </div>
+    <p id="texto">Clique no botão para iniciar</p>
+    <script>
+        function conversor() {
+            var texto = document.querySelector('p#texto') // gambiarra que fiz pra tirar o texto, ver se tem outro jeito depois
+            var converte = document.getElementById('converte')
+            metros = Number(prompt('Digite uma distância em metros(m)'))
+            converte.innerHTML += (`<span>A distância de ${metros} metros, corresponde a...</span> <br>`)
+            converte.innerHTML += (`${metros / 1000} quilômetros(Km) <br> ${metros / 100} hectômetros(Hm) <br> ${metros / 10} decâmetros(Dam) <br> ${metros * 10} decímetros(dm) <br> ${metros * 100} centímetros(cm) <br> ${metros * 1000} milímetros(mm)`)
+            texto.innerHTML = '' // gambiarra que fiz pra tirar o texto, ver se tem outro jeito depois
+        }
+    </script>
 </body>
 </html>

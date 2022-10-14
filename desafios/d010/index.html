@@ -4,9 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fórmula de Bhaskara</title>
+    <style>
+        div p{
+            background-color: rgba(128, 128, 128, 0.089);
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid gray;
+            box-shadow: 1px 1px gray;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        span#espano {
+            font-size: 24px;
+        }
+
+    </style>
 </head>
 <body>
-    
+    <h1>Resolvendo Bhaskara</h1>
+    <div id="botao" onclick="Bhaskara()">
+        <p>Calcular</p>
+    </div>
+    <p id="texto">Considerando uma equação no formato <span>a</span>x² + <span>b</span>x + <span>c</span> = 0, aperte o botão acima para calcular o valor de &Delta;</p>
+    <script>
+        function Bhaskara() {
+            let texto = document.querySelector('p#texto')
+            let botao = document.getElementById('botao')
+            let a = Number(prompt(`Qual o valor de a?`))
+            let b = Number(prompt(`Qual o valor de b?`))
+            let c = Number(prompt(`Qual o valor de c?`))
+            let calculo = b ** 2 - 4 * a * c
+            botao.innerHTML += (`<span id="espano">Resolvendo Bhaskara...</span><br>`)
+            botao.innerHTML += `A equação atual é <span>${a}x² + ${b}x + ${c} = 0</span><br>`
+            botao.innerHTML += `O cálculo realizado será <span>Δ = ${b}² - 4 . ${a} . ${c}</span><br> `
+            botao.innerHTML += `O valor calculado foi <span>Δ = ${calculo}</span>`
+            texto.innerHTML = ''
+        }
+    </script>
 </body>
 </html>

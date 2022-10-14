@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Reajustar salário</title>
+    <style>
+        div p{
+            background-color: rgba(128, 128, 128, 0.089);
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid gray;
+            box-shadow: 1px 1px gray;
+        }
+
+        span {
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Reajuste salarial</h1>
+    <div id="botao" onclick="calcularAumento()">
+        <p>Reajustar salário</p>
+    </div>
+    <p id="texto">Clique no botão acima para iniciar.</p>
+    <script>
+        function calcularAumento() {
+            let texto = document.querySelector('p#texto')
+            let botao = document.getElementById('botao')
+            let funcionario = prompt('Qual o nome do funcionário?')
+            let salario = Number(prompt(`Qual é o salário de ${funcionario}?`))
+            let porcentagem = Number(prompt(`O salário de ${funcionario} vai ser reajustado em qual porcentagem?`))
+            let raise = (salario * porcentagem) / 100
+            let pagar = salario + raise
+            botao.innerHTML += (`<span>${funcionario} recebeu um aumento salarial!</span><br>O salário atual era R$ ${salario.toFixed([2]).replace('.', ',')}.<br>Com um aumento de ${porcentagem}%, o salário vai aumentar R$ ${raise.toFixed([2]).replace('.', ',')} no próximo mês.<br>E a partir daí, ${funcionario} vai passar a ganhar R$ ${pagar.toFixed([2]).replace('.', ',')}.`)
+            texto.innerHTML = ''
+        }
+    </script>
 </body>
 </html>

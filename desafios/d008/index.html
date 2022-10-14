@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cálculo de Desconto</title>
+    <style>
+        div p{
+            background-color: rgba(128, 128, 128, 0.089);
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid gray;
+            box-shadow: 1px 1px gray;
+        }
+
+        span {
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Calcular Desconto</h1>
+    <div id="botao" onclick="calcularDesconto()">
+        <p>Desconto</p>
+    </div>
+    <p id="texto">Desconto de 10%</p>
+    <script>
+        function calcularDesconto() {
+            let texto = document.querySelector('p#texto')
+            let botao = document.getElementById('botao')
+            let produto = prompt('Qual produto está comprando?')
+            let price = Number(prompt(`Qual o preço do ${produto}?`))
+            let desconto = Number(price * 10) / 100
+            let pagar = price - desconto
+            botao.innerHTML += (`<span>Calculando desconto de 10% para ${produto}...</span><br>O preço original era R$ ${price.toFixed([2]).replace('.', ',')}.<br>Você acaba de ganhar R$ ${desconto.toFixed([2]).replace('.', ',')} de desconto (-10%).<br>No fim, você vai pagar R$ ${pagar.toFixed([2]).replace('.', ',')} no produto ${produto}.`)
+            texto.innerHTML = ''
+        }
+    </script>
 </body>
 </html>
