@@ -4,9 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hora do dia</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-sizing: border-box;
+        }
+        main {
+            background-color: burlywood;
+            height: 100vh;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+        }
+
+        div {
+            text-align: center;
+            background-color: beige;
+            width: 50%;
+            margin: auto;
+        }
+
+        img {
+            border-radius: 50%;
+            width: 50%;
+        }
+    </style>
 </head>
-<body>
-    
+<body id="corpo" onload="hora()">
+    <main id="fundotras">
+        <h1>Hora do dia</h1>
+        <div id="fundofrente">
+            <p id="display">
+            </p>
+        <div id="foto">
+            <img src="manhã.jpg" alt="Imagem do horário">
+        </div>
+    </main>
+    <script>
+        function hora() {
+            let corpo =  document.getElementById('corpo')
+            let fundotras = document.getElementById('fundotras')
+            let display = document.getElementById('display')
+            let foto = document.getElementById('foto')
+            let atual = new Date()
+            let horario = atual.getHours()
+            if (horario < 6) {
+                fundotras.style.backgroundColor = 'black'
+                display.innerHTML = `Agora são ${horario} horas.`
+            } else if (horario < 12) {
+                fundotras.style.backgroundColor = 'burlywood'
+                display.innerHTML = `Agora são ${horario} horas.`
+            } else if (horario < 18) {
+                fundotras.style.backgroundColor = 'yellow'
+                display.innerHTML = `Agora são ${horario} horas.`
+            } else {
+                fundotras.style.backgroundColor = 'darkblue'
+                display.innerHTML = `Agora são ${horario} horas.`
+                foto.innerHTML= '<img src="noite.jpg">'
+            }
+        }
+    </script>
 </body>
 </html>
