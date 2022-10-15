@@ -42,7 +42,7 @@
             <p id="display">
             </p>
         <div id="foto">
-            <img src="manhã.jpg" alt="Imagem do horário">
+            <img src="manha.jpg" alt="Imagem do horário">
         </div>
     </main>
     <script>
@@ -56,6 +56,7 @@
             if (horario < 6) {
                 fundotras.style.backgroundColor = 'black'
                 display.innerHTML = `Agora são ${horario} horas.`
+                img.innerHTML= 'madrugada.jpg'
             } else if (horario < 12) {
                 fundotras.style.backgroundColor = 'burlywood'
                 display.innerHTML = `Agora são ${horario} horas.`
