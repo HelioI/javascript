@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do aluno</title>
+    <style>
+        div p{
+            background-color: rgba(128, 128, 128, 0.089);
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            border: 1px solid gray;
+            box-shadow: 1px 1px gray;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        span#certo {
+            background-color: rgba(0, 128, 0, 0.436);
+        }
+
+        span#errado {
+            background-color: rgba(255, 0, 0, 0.367)
+        }
+
+        span#espano {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Situação do aluno</h1>
+    <div id="desafio" onclick="calcularmedia()">
+        <p>Insira as notas</p>
+    </div>
+    <p id="texto">Clique no botão acima para informar as notas do aluno.</p>
+    <script>
+        function calcularmedia() {
+            let desafio = document.querySelector('div#desafio')
+            let texto = document.querySelector('p#texto')
+            let aluno = prompt('Qual é o nome do aluno?')
+            let n1 = Number(prompt(`Primeira nota de ${aluno}`))
+            let n2 = Number(prompt(`Segunda nota de ${aluno}`))
+            let media = (n1 + n2) / 2
+            desafio.innerHTML += `<span id="espano">Analisando as notas</span><br>A média do aluno foi ${media.toFixed([1]).replace('.', ',')}.<br>`
+            if (media >= 6) {
+                desafio.innerHTML += `Aprovado!`
+            } else if(media >= 3) {
+                desafio.innerHTML += `Recuperação!`
+            } else {
+                desafio.innerHTML += `Reprovado!`
+            }
+            texto.innerHTML = ''
+        }
+    </script>
+</body>
+</html>

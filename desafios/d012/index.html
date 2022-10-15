@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou</title>
+    <style>
+        div p{
+            background-color: rgba(128, 128, 128, 0.089);
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            border: 1px solid gray;
+            box-shadow: 1px 1px gray;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        span#certo {
+            background-color: rgba(0, 128, 0, 0.436);
+        }
+
+        span#errado {
+            background-color: rgba(255, 0, 0, 0.367)
+        }
+
+        span#espano {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <div id="desafio" onclick="mudou()">
+        <p>Verificar</p>
+    </div>
+    <p id="texto">Clique no botão acima para analisar a mudança de preço.</p>
+    <script>
+        function mudou() {
+            let desafio = document.querySelector('div#desafio')
+            let texto = document.querySelector('p#texto')
+            let anterior = Number(prompt('Qual era o preço anterior do produto?'))
+            let atual = Number(prompt('Qual é o preço atual do produto?'))
+            desafio.innerHTML += `<span id="espano">Analisando os valores informados</span><br>O produto custava R$ ${anterior.toFixed([2]).replace('.', ',')} e agora custa R$ ${atual.toFixed([2]).replace('.', ',')}.<br>`
+            if (anterior > atual) {
+                let barato = anterior - atual
+                let reducao = (anterior - atual) / atual * 100
+                desafio.innerHTML += 'Hoje o produto está mais barato.<br>'
+                desafio.innerHTML += `O preço caiu R$ ${barato.toFixed([2]).replace('.', ',')} em relação ao anterior.<br>`
+                desafio.innerHTML += `Uma variação de ${reducao.toFixed([2])}% pra baixo.<br>`
+            } else if(atual > anterior) {
+                let caro = atual - anterior
+                let aumento = (atual - anterior) / anterior * 100
+                desafio.innerHTML += 'Hoje o produto está mais caro.<br>'
+                desafio.innerHTML += `O preço subiu R$ ${caro.toFixed([2]).replace('.', ',')} em relação ao anterior.<br>`
+                desafio.innerHTML += `Uma variação de ${aumento.toFixed([2])}% pra cima.<br>`
+            } else {
+                desafio.innerHTML += `O preço é o mesmo!<br>`
+            }
+            texto.innerHTML = ''
+        }
+    </script>
+</body>
+</html>

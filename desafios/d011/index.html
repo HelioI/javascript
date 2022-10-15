@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ano Bissexto</title>
+    <style>
+        div p{
+            background-color: rgba(128, 128, 128, 0.089);
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            border: 1px solid gray;
+            box-shadow: 1px 1px gray;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        span#certo {
+            background-color: rgba(0, 128, 0, 0.436);
+        }
+
+        span#errado {
+            background-color: rgba(255, 0, 0, 0.367)
+        }
+
+        span#espano {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ano Bissexto</h1>
+    <div id="desafio" onclick="Bissexto()">
+        <p>Verificar</p>
+    </div>
+    <p id="texto">Informe um ano para saber se ele é bissexto</p>
+    <script>
+        function Bissexto() {
+            let desafio = document.querySelector('div#desafio')
+            let texto = document.querySelector('p#texto')
+            let ano = Number(prompt('Qual ano quer verificar?'))
+            desafio.innerHTML = `<span id="espano">Analisando o ano de ${ano}...</span><br>`
+            if (ano % 4 == 0 && ano % 100 != 0) {
+                desafio.innerHTML += `O ano de ${ano} <span id="certo">É BISSEXTO</span>`
+            } else if (ano % 4 == 0 && ano % 100 == 0 && ano % 400 == 0) {
+                desafio.innerHTML += `O ano de ${ano} <span id="certo">É BISSEXTO</span>`
+            } else {
+                desafio.innerHTML += `O ano de ${ano} <span id="errado">NÃO É BISSEXTO</span>`
+            }
+            texto.innerHTML = ''
+        }
+    </script>
+</body>
+</html>
