@@ -7,13 +7,17 @@ header {
     text-align: center;
 }
 
-main {
+section {
     background-color: white;
     border-radius: 10px;
     padding: 15px;
     width: 500px;
     margin: auto;
     box-shadow: 2px 2px 2px rgba(1, 1, 9, 0.475);
+}
+
+section img {
+    padding: 15px;
 }
 
 footer {
